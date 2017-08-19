@@ -13,4 +13,5 @@ class CallTypes
     const LEFT = 'left';
     const RIGHT = 'right';
     const SPEED_STEP = 1;
+    const PICTURE_FOLDER = '/images/';
 }
