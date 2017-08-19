@@ -14,14 +14,14 @@ class Drone
 
     public function __construct()
     {
-        if($_REQUEST){
-            foreach ($_REQUEST as $key=>$value)
-            {
-                if(isset($this->$key)){
-                    $this->$key= $value;
+        if ($_REQUEST) {
+            foreach ($_REQUEST as $key => $value) {
+                if (isset($this->$key)) {
+                    $this->$key = $value;
                 }
             }
         }
+        return $this;
     }
 
     public function up()
@@ -62,11 +62,11 @@ class Drone
 
     public function takePicture()
     {
-        $pictureName =  time() . '.jpg';
-        try{
-            file_put_contents( CallTypes::PICTURE_FOLDER.$pictureName, file_get_contents('php://input') );
-        }catch (\Exception $exception){
-            echo "Error.Problem to take picture:<br>".$exception->getMessage();
+        $pictureName = time() . '.jpg';
+        try {
+            file_put_contents(CallTypes::PICTURE_FOLDER . $pictureName, file_get_contents('php://input'));
+        } catch (\Exception $exception) {
+            echo "Problem to take picture:<br>" . $exception->getMessage();
         }
         return $this;
     }
